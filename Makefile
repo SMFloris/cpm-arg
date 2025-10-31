@@ -107,14 +107,20 @@ test:
 	  fi; \
 	done
 	@if [ -d tests ]; then \
-	  echo "==> Building and running top-level tests"; \
-	  mkdir -p $(BUILD_DIR)/tests; \
-	  for t in tests/*.c; do \
-	    out=$(BUILD_DIR)/tests/$$(basename $${t%.c}); \
-	    $(CC) $(CFLAGS) $(CPPFLAGS) $(MODULE_INCLUDES) -I$(INC_DIR) -o $$out $$t $(MODULE_LIBS) $(LDLIBS) -lcriterion; \
-	    echo "Running $$out"; \
-	    $$out || exit 1; \
-	  done; \
+	  if ls tests/*.c >/dev/null 2>&1; then \
+		echo "==> Building and running top-level tests"; \
+		mkdir -p $(BUILD_DIR)/tests; \
+		for t in tests/*.c; do \
+		  out=$(BUILD_DIR)/tests/$$(basename $${t%.c}); \
+		  $(CC) $(CFLAGS) $(CPPFLAGS) $(MODULE_INCLUDES) -I$(INC_DIR) -o $$out $$t $(MODULE_LIBS) $(LDLIBS) -lcriterion; \
+		  echo "Running $$out"; \
+		  $$out || exit 1; \
+		done; \
+	  else \
+		echo "==> No tests found"; \
+	  fi; \
+	else \
+	  echo "==> No tests directory found"; \
 	fi
 
 clean:
