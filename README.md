@@ -74,14 +74,10 @@ This will:
 ## 🧰 Build
 
 ```bash
-make bin     # Build executable
+make bin     # Build executable sample
 make lib     # Build static library
 make install # Install to PREFIX
 ```
-
----
-
-Sure Floris — here’s the added section for the README:
 
 ---
 
