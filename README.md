@@ -87,7 +87,7 @@ Sure Floris — here’s the added section for the README:
 
 ## 🧪 Powered by nix-c-modular-template
 
-This project is built on top of the [nix-c-modular-template](https://github.com/SMFloris/nix-c-modular-template) system — a modular C/C++ project template powered by Nix, designed for reproducible builds, clean module structure, automatic `pkg-config` handling and integration with `clangd` + `bear`. ([GitHub][1])
+This project is built on top of the [nix-c-modular-template](https://github.com/SMFloris/nix-c-modular-template) system — a modular C/C++ project template powered by Nix, designed for reproducible builds, clean module structure, automatic `pkg-config` handling and integration with `clangd` + `bear`.
 
 * Use `nix-shell` to enter a fully prepared dev environment with correct compiler flags and dependencies.
 * Use `nix-build` to produce a deterministic build of the app (including internal modules) with minimal effort.
